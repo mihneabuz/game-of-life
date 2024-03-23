@@ -2,7 +2,7 @@ use std::cmp::min;
 
 use bitvec::{bitvec, vec::BitVec};
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct GameOfLife {
     height: usize,
     width: usize,
@@ -78,11 +78,11 @@ impl GameOfLife {
     }
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct Update {
-    x: usize,
-    y: usize,
-    alive: bool,
+    pub x: usize,
+    pub y: usize,
+    pub alive: bool,
 }
 
 pub struct Updates<'a> {
